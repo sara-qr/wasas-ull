@@ -1,0 +1,89 @@
+---
+// Footer editorial con información institucional y enlaces legales.
+const partnerLogos = [
+  { name: "WASAS", src: "/logos/wasas-white.svg" },
+  { name: "Arona Voley", src: "/logos/aronavoley-white.svg" },
+  { name: "Anemos", src: "/logos/anemos-white.svg" },
+  { name: "Co-funded by the European Union", src: "/logos/cofunded-white.png" },
+];
+const socialLinks = [
+  { name: "Instagram", src: "/social/instagram-plain.svg", href: "#" },
+];
+const menuLinks = [
+  { label: "Noticias", href: "/noticias" },
+  { label: "Contacto", href: "/contacto" },
+];
+---
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="site-footer__brand-block">
+      <p class="site-footer__brand">WASAS ULL</p>
+      <p class="site-footer__institution">Universidad de La Laguna</p>
+      <img
+        class="site-footer__ull-logo"
+        src="/logos/ull-white.svg"
+        alt="Universidad de La Laguna"
+        loading="lazy"
+      />
+
+      <div class="site-footer__copy">
+        <p>
+          WASAS es un proyecto europeo cofinanciado por la Unión Europea a través
+          del programa Erasmus+. Consorcio: Arona Voley (España, coordinador),
+          Anemos (Grecia), Breezageri (Chipre) y Universidad de La Laguna
+          (España). El apoyo de la Comisión Europea no constituye un respaldo de
+          los contenidos, que reflejan únicamente la opinión de los autores.
+        </p>
+      </div>
+    </div>
+
+    <div class="site-footer__columns">
+      <div class="site-footer__menu" aria-label="Menú">
+        <h2>Menú</h2>
+        {
+          menuLinks.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))
+        }
+      </div>
+
+      <div class="site-footer__socials" aria-label="Redes sociales">
+        <h2>Redes</h2>
+        {
+          socialLinks.map((social) => (
+            <a href={social.href} aria-label={social.name}>
+              <img src={social.src} alt="" loading="lazy" />
+              <span>{social.name}</span>
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="site-footer__partners" aria-label="Partners">
+        <h2>Partners</h2>
+        <div class="site-footer__logos">
+          {
+            partnerLogos.map((logo) => (
+              <img src={logo.src} alt={logo.name} loading="lazy" />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="site-footer__links">
+      <a href="#aviso-legal">Aviso legal</a>
+      <a href="#privacidad">Política de privacidad</a>
+      <a href="#cookies">Política de cookies</a>
+    </div>
+
+    <p class="site-footer__credit">
+      © 2026 WASAS-ULL - We Are Sand And Sea. All rights reserved. Created by
+      {" "}
+      <a href="https://sqstudio.es/">sqstudio.es</a>.
+    </p>
+  </div>
+</footer>

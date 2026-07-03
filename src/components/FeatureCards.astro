@@ -1,0 +1,72 @@
+---
+// Sección de tres cards para mostrar las líneas de trabajo del proyecto.
+const features = [
+  {
+    title: "Investigación y evaluación",
+    text: "Diseño de cuestionarios sobre ansiedad climática, ecopsicología y satisfacción. Medición del impacto en bienestar y compromiso ambiental de participantes.",
+    icon: "search",
+    variant: "feature-card--violet",
+  },
+  {
+    title: "Actividad física en la naturaleza",
+    text: "Sesiones de surf, voleibol de playa, paddle surf, kayak y otras disciplinas combinadas con talleres de gestión emocional en conexión con el entorno costero.",
+    icon: "waves",
+    variant: "feature-card--blue",
+  },
+  {
+    title: "Divulgación y resultados",
+    text: "Publicación de avances, materiales audiovisuales, conclusiones científicas y recursos transferibles a otros contextos educativos y deportivos.",
+    icon: "chart",
+    variant: "feature-card--sand",
+  },
+];
+---
+
+<section class="features" aria-labelledby="features-title">
+  <div class="features-header">
+    <p class="features-header__eyebrow">WASAS ULL</p>
+    <h2 id="features-title">Qué estamos haciendo</h2>
+  </div>
+
+  <div class="features-grid">
+    {
+      features.map((feature) => (
+        <article class={`feature-card ${feature.variant}`}>
+          <div class="feature-icon" aria-hidden="true">
+            {
+              feature.icon === "search" && (
+                <svg viewBox="0 0 24 24" role="img">
+                  <circle cx="10.5" cy="10.5" r="5.5"></circle>
+                  <path d="M15 15l4 4"></path>
+                  <path d="M8.5 10.5h4"></path>
+                  <path d="M10.5 8.5v4"></path>
+                </svg>
+              )
+            }
+            {
+              feature.icon === "waves" && (
+                <svg viewBox="0 0 24 24" role="img">
+                  <path d="M3 8c2.25 0 2.25 1.6 4.5 1.6S9.75 8 12 8s2.25 1.6 4.5 1.6S18.75 8 21 8"></path>
+                  <path d="M3 13c2.25 0 2.25 1.6 4.5 1.6S9.75 13 12 13s2.25 1.6 4.5 1.6S18.75 13 21 13"></path>
+                  <path d="M3 18c2.25 0 2.25 1.6 4.5 1.6S9.75 18 12 18s2.25 1.6 4.5 1.6S18.75 18 21 18"></path>
+                </svg>
+              )
+            }
+            {
+              feature.icon === "chart" && (
+                <svg viewBox="0 0 24 24" role="img">
+                  <path d="M5 19h14"></path>
+                  <path d="M7 16V9"></path>
+                  <path d="M12 16V5"></path>
+                  <path d="M17 16v-4"></path>
+                </svg>
+              )
+            }
+          </div>
+          <h3>{feature.title}</h3>
+          <p>{feature.text}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

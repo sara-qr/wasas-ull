@@ -1,0 +1,22 @@
+---
+const navigation = [
+  { label: "Noticias", href: "/noticias" },
+  { label: "Contacto", href: "/contacto" },
+];
+---
+
+<header class="site-header">
+  <a class="site-header__brand" href="/" aria-label="WASAS ULL">
+    <span class="site-header__brand-logo" aria-hidden="true"></span>
+  </a>
+
+  <nav class="site-header__nav" aria-label="Navegación principal">
+    {
+      navigation.map((item) => (
+        <a class="site-header__link" href={item.href}>
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>

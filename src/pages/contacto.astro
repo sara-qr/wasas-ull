@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Contacto | WASAS ULL"
+  description="Contacto institucional del proyecto WASAS ULL"
+>
+  <main class="page-shell">
+    <Header />
+
+    <section class="internal-hero internal-hero--plain" aria-labelledby="contact-page-title">
+      <p class="hero__eyebrow">WASAS ULL</p>
+      <h1 id="contact-page-title">Contacto</h1>
+      <p>
+        Información para centros, entidades y personas interesadas en conocer o
+        colaborar con el proyecto WASAS ULL.
+      </p>
+    </section>
+
+    <section class="contact-layout" aria-label="Información de contacto">
+      <div class="contact-panel contact-panel--intro">
+        <p class="hero__eyebrow">Habla con el consorcio</p>
+        <h2>Una vía de contacto para toda la colaboración</h2>
+        <p>
+          Un único buzón conecta con todo el partenariado de WASAS en España,
+          Grecia y Chipre.
+        </p>
+        <div class="contact-facts">
+          <div>
+            <span>Email</span>
+            <strong><a href="mailto:hello@wasas.eu">hello@wasas.eu</a></strong>
+          </div>
+          <div>
+            <span>Tiempo de respuesta</span>
+            <strong>En 2-3 días laborables</strong>
+          </div>
+          <div>
+            <span>Dónde estamos</span>
+            <strong>España · Grecia · Chipre</strong>
+          </div>
+          <div>
+            <span>Síguenos</span>
+            <strong>Instagram</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
