@@ -1,47 +1,6 @@
 ---
-// Sección de novedades con un listado editorial de avances del proyecto.
-const newsItems = [
-  {
-    date: "28 abril 2024",
-    tag: "Evento",
-    tone: "violet",
-    visual: "beach",
-    title: "Jornada inicial del proyecto WASAS",
-    text: "Compartimos los objetivos, las primeras líneas de trabajo y el enfoque científico del proyecto.",
-  },
-  {
-    date: "15 abril 2024",
-    tag: "Actividad",
-    tone: "blue",
-    visual: "coast",
-    title: "Sesiones con jóvenes en la playa",
-    text: "Deporte, conciencia ambiental y bienestar en conexión con el entorno costero.",
-  },
-  {
-    date: "02 abril 2024",
-    tag: "Noticia",
-    tone: "orange",
-    visual: "workshop",
-    title: "Talleres sobre ecoansiedad",
-    text: "Espacios de diálogo y herramientas prácticas para transformar la preocupación climática.",
-  },
-  {
-    date: "18 marzo 2024",
-    tag: "Investigación",
-    tone: "blue",
-    visual: "data",
-    title: "Evaluaciones ULL en marcha",
-    text: "Aplicación de cuestionarios y análisis de datos en las playas prioritarias.",
-  },
-  {
-    date: "05 marzo 2024",
-    tag: "Multimedia",
-    tone: "orange",
-    visual: "media",
-    title: "Producción de material audiovisual",
-    text: "Documentando cada paso para compartir aprendizajes y resultados.",
-  },
-];
+import { newsItems } from "../data/news";
+const featuredItems = newsItems.slice(0, 5);
 ---
 
 <section class="news-section" aria-labelledby="news-title">
@@ -52,27 +11,26 @@ const newsItems = [
     </div>
     <a class="news-section__link" href="/noticias">Ver todas las novedades</a>
   </div>
-
   <div class="news-grid">
-    {
-      newsItems.map((item) => (
-        <article class="news-card">
+    {featuredItems.map((item) => (
+      <article class="news-card">
+        {item.images.length ? (
+          <div class="news-card__visual"><img src={item.images[0].src} alt={item.images[0].alt} loading="lazy" /></div>
+        ) : (
           <div class={`news-card__visual news-card__visual--${item.visual}`} aria-hidden="true" />
-          <div class="news-card__body">
-            <div class="news-card__meta">
-              <span>{item.date}</span>
-              <strong class={`news-card__tag news-card__tag--${item.tone}`}>
-                {item.tag}
-              </strong>
-            </div>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
-            <a class="news-card__link" href="/noticias">
-              Leer más <span aria-hidden="true">→</span>
-            </a>
+        )}
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            {item.date && <span>{item.date}</span>}
+            <strong class={`news-card__tag news-card__tag--${item.tone}`}>{item.tag}</strong>
           </div>
-        </article>
-      ))
-    }
+          <h3>{item.title}</h3>
+          <p>{item.excerpt}</p>
+          <a class="news-card__link" href={`/noticias/${item.slug}`}>
+            Leer más <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+    ))}
   </div>
 </section>

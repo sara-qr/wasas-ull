@@ -2,92 +2,41 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-
-const newsItems = [
-  {
-    date: "28 abril 2024",
-    tag: "Evento",
-    tone: "violet",
-    visual: "beach",
-    title: "Jornada inicial del proyecto WASAS",
-    text: "Compartimos los objetivos, las primeras líneas de trabajo y el enfoque científico del proyecto.",
-  },
-  {
-    date: "15 abril 2024",
-    tag: "Actividad",
-    tone: "blue",
-    visual: "coast",
-    title: "Sesiones con jóvenes en la playa",
-    text: "Deporte, conciencia ambiental y bienestar en conexión con el entorno costero.",
-  },
-  {
-    date: "02 abril 2024",
-    tag: "Noticia",
-    tone: "orange",
-    visual: "workshop",
-    title: "Talleres sobre ecoansiedad",
-    text: "Espacios de diálogo y herramientas prácticas para transformar la preocupación climática.",
-  },
-  {
-    date: "18 marzo 2024",
-    tag: "Investigación",
-    tone: "blue",
-    visual: "data",
-    title: "Evaluaciones ULL en marcha",
-    text: "Aplicación de cuestionarios y análisis de datos en las playas prioritarias.",
-  },
-  {
-    date: "05 marzo 2024",
-    tag: "Multimedia",
-    tone: "orange",
-    visual: "media",
-    title: "Producción de material audiovisual",
-    text: "Documentando cada paso para compartir aprendizajes y resultados.",
-  },
-];
+import { newsItems } from "../data/news";
 ---
 
-<Layout
-  title="Noticias | WASAS ULL"
-  description="Noticias y avances del proyecto WASAS ULL"
->
+<Layout title="Noticias | WASAS ULL" description="Noticias y avances del proyecto WASAS ULL">
   <main class="page-shell">
     <Header />
-
     <section class="internal-hero internal-hero--plain" aria-labelledby="news-page-title">
       <p class="hero__eyebrow">WASAS ULL</p>
       <h1 id="news-page-title">Noticias</h1>
-      <p>
-        Avances, actividades y comunicaciones del proyecto recopiladas para
-        seguir la evolución del trabajo de WASAS ULL.
-      </p>
+      <p>Avances, actividades y comunicaciones del proyecto recopiladas para seguir la evolución del trabajo de WASAS ULL.</p>
     </section>
-
     <section class="internal-section" aria-label="Listado de noticias">
       <div class="news-grid news-grid--page">
-        {
-          newsItems.map((item) => (
-            <article class="news-card">
+        {newsItems.map((item) => (
+          <article class="news-card">
+            {item.images.length ? (
+              <div class="news-card__visual"><img src={item.images[0].src} alt={item.images[0].alt} loading="lazy" /></div>
+            ) : (
               <div class={`news-card__visual news-card__visual--${item.visual}`} aria-hidden="true" />
-              <div class="news-card__body">
-                <div class="news-card__meta">
-                  <span>{item.date}</span>
-                  <strong class={`news-card__tag news-card__tag--${item.tone}`}>
-                    {item.tag}
-                  </strong>
-                </div>
-                <h2>{item.title}</h2>
-                <p>{item.text}</p>
-                <a class="news-card__link" href="/noticias">
-                  Leer más <span aria-hidden="true">→</span>
-                </a>
+            )}
+            <div class="news-card__body">
+              <div class="news-card__meta">
+                {item.date && <span>{item.date}</span>}
+                <strong class={`news-card__tag news-card__tag--${item.tone}`}>{item.tag}</strong>
               </div>
-            </article>
-          ))
-        }
+              <h2>{item.title}</h2>
+              <p>{item.excerpt}</p>
+              <a class="news-card__link" href={`/noticias/${item.slug}`}>
+                Leer más <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   </main>
-
   <Footer />
 </Layout>

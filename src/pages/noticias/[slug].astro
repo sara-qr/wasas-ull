@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { newsItems, type NewsItem } from "../../data/news";
+
+export function getStaticPaths() {
+  return newsItems.map((item) => ({ params: { slug: item.slug }, props: { item } }));
+}
+const { item } = Astro.props as { item: NewsItem };
+---
+
+<Layout title={`${item.title} | WASAS ULL`} description={item.excerpt}>
+  <main class="page-shell">
+    <Header />
+    <article class="news-detail">
+      <a class="news-detail__back" href="/noticias">← Volver a Noticias</a>
+      <div class="news-card__meta news-detail__meta">
+        {item.date && <span>{item.date}</span>}
+        <strong class={`news-card__tag news-card__tag--${item.tone}`}>{item.tag}</strong>
+      </div>
+      <h1>{item.title}</h1>
+      {item.images.length ? (
+        <figure class="news-detail__hero"><img src={item.images[0].src} alt={item.images[0].alt} /></figure>
+      ) : (
+        <div class={`news-detail__placeholder news-card__visual--${item.visual}`} aria-hidden="true" />
+      )}
+      <div class="news-detail__content"><p>{item.content}</p></div>
+      {item.images.length > 1 && (
+        <section class="news-detail__gallery" aria-label="Más imágenes de la noticia">
+          {item.images.slice(1).map((image) => <img src={image.src} alt={image.alt} loading="lazy" />)}
+        </section>
+      )}
+      {(item.funding || item.disclaimer) && (
+        <aside class="news-detail__funding">
+          {item.funding && <p>{item.funding}</p>}
+          {item.disclaimer && <p>{item.disclaimer}</p>}
+        </aside>
+      )}
+    </article>
+  </main>
+  <Footer />
+</Layout>
