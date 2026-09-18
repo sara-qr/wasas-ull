@@ -17,11 +17,7 @@ import { newsItems } from "../data/news";
       <div class="news-grid news-grid--page">
         {newsItems.map((item) => (
           <article class="news-card">
-            {item.images.length ? (
-              <div class="news-card__visual"><img src={item.images[0].src} alt={item.images[0].alt} loading="lazy" /></div>
-            ) : (
-              <div class={`news-card__visual news-card__visual--${item.visual}`} aria-hidden="true" />
-            )}
+            <div class="news-card__visual"><img src={item.images[0].src} alt={item.images[0].alt} loading="lazy" /></div>
             <div class="news-card__body">
               <div class="news-card__meta">
                 {item.date && <span>{item.date}</span>}

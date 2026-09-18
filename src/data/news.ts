@@ -3,19 +3,17 @@ export interface NewsItem {
   slug: string;
   date: string | null;
   tag: string;
-  tone: "violet" | "blue" | "orange";
+  tone: "violet";
   title: string;
   excerpt: string;
   content: string;
   images: NewsImage[];
-  visual?: string;
   funding?: string;
   disclaimer?: string;
   sourcePost?: number;
 }
 
 // Los posts sin fecha de publicación mantienen el orden editorial del PDF (22 a 1).
-// Las cinco noticias anteriores conservan sus fechas y aparecen después.
 export const newsItems: NewsItem[] = [
   {
     "slug": "post-22",
@@ -436,60 +434,5 @@ export const newsItems: NewsItem[] = [
     "funding": "Co-funded by the European Union through the Erasmus+ programme.",
     "disclaimer": "The European Commission’s support for the production of this publication does not constitute an endorsement of the contents, which reflect the views only of the authors, and the Commission cannot be held responsible for any use which may be made of the information contained therein.",
     "sourcePost": 1
-  },
-  {
-    "slug": "jornada-inicial-del-proyecto-wasas",
-    "date": "28 abril 2024",
-    "tag": "Evento",
-    "tone": "violet",
-    "title": "Jornada inicial del proyecto WASAS",
-    "excerpt": "Compartimos los objetivos, las primeras líneas de trabajo y el enfoque científico del proyecto.",
-    "content": "Compartimos los objetivos, las primeras líneas de trabajo y el enfoque científico del proyecto.",
-    "images": [],
-    "visual": "beach"
-  },
-  {
-    "slug": "sesiones-con-jovenes-en-la-playa",
-    "date": "15 abril 2024",
-    "tag": "Actividad",
-    "tone": "blue",
-    "title": "Sesiones con jóvenes en la playa",
-    "excerpt": "Deporte, conciencia ambiental y bienestar en conexión con el entorno costero.",
-    "content": "Deporte, conciencia ambiental y bienestar en conexión con el entorno costero.",
-    "images": [],
-    "visual": "coast"
-  },
-  {
-    "slug": "talleres-sobre-ecoansiedad",
-    "date": "02 abril 2024",
-    "tag": "Noticia",
-    "tone": "orange",
-    "title": "Talleres sobre ecoansiedad",
-    "excerpt": "Espacios de diálogo y herramientas prácticas para transformar la preocupación climática.",
-    "content": "Espacios de diálogo y herramientas prácticas para transformar la preocupación climática.",
-    "images": [],
-    "visual": "workshop"
-  },
-  {
-    "slug": "evaluaciones-ull-en-marcha",
-    "date": "18 marzo 2024",
-    "tag": "Investigación",
-    "tone": "blue",
-    "title": "Evaluaciones ULL en marcha",
-    "excerpt": "Aplicación de cuestionarios y análisis de datos en las playas prioritarias.",
-    "content": "Aplicación de cuestionarios y análisis de datos en las playas prioritarias.",
-    "images": [],
-    "visual": "data"
-  },
-  {
-    "slug": "produccion-de-material-audiovisual",
-    "date": "05 marzo 2024",
-    "tag": "Multimedia",
-    "tone": "orange",
-    "title": "Producción de material audiovisual",
-    "excerpt": "Documentando cada paso para compartir aprendizajes y resultados.",
-    "content": "Documentando cada paso para compartir aprendizajes y resultados.",
-    "images": [],
-    "visual": "media"
   }
 ];

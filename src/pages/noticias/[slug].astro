@@ -20,11 +20,7 @@ const { item } = Astro.props as { item: NewsItem };
         <strong class={`news-card__tag news-card__tag--${item.tone}`}>{item.tag}</strong>
       </div>
       <h1>{item.title}</h1>
-      {item.images.length ? (
-        <figure class="news-detail__hero"><img src={item.images[0].src} alt={item.images[0].alt} /></figure>
-      ) : (
-        <div class={`news-detail__placeholder news-card__visual--${item.visual}`} aria-hidden="true" />
-      )}
+      <figure class="news-detail__hero"><img src={item.images[0].src} alt={item.images[0].alt} /></figure>
       <div class="news-detail__content"><p>{item.content}</p></div>
       {item.images.length > 1 && (
         <section class="news-detail__gallery" aria-label="Más imágenes de la noticia">

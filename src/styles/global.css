@@ -467,46 +467,12 @@ a {
 .news-card__visual {
   height: 170px;
   background-color: var(--color-purple-light);
-  background-position: center;
-  background-size: cover;
 }
 
 .news-card__visual img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.news-card__visual--beach {
-  background-image: linear-gradient(180deg, rgba(92, 6, 140, 0.05), rgba(17, 17, 17, 0.12)), url("/images/hero.png");
-  background-position: center 42%;
-}
-
-.news-card__visual--coast {
-  background-image: linear-gradient(180deg, rgba(223, 243, 247, 0.12), rgba(17, 17, 17, 0.12)), url("/images/hero.png");
-  background-position: 58% 56%;
-}
-
-.news-card__visual--workshop {
-  background:
-    radial-gradient(circle at 30% 35%, rgba(244, 160, 47, 0.36) 0 10%, transparent 11%),
-    radial-gradient(circle at 67% 42%, rgba(92, 6, 140, 0.22) 0 8%, transparent 9%),
-    linear-gradient(135deg, #f8efe2 0%, #ffffff 48%, #f2ebf8 100%);
-}
-
-.news-card__visual--data {
-  background:
-    linear-gradient(100deg, transparent 13%, rgba(60, 155, 215, 0.72) 14% 18%, transparent 19%),
-    linear-gradient(100deg, transparent 45%, rgba(92, 6, 140, 0.42) 46% 51%, transparent 52%),
-    linear-gradient(100deg, transparent 70%, rgba(244, 160, 47, 0.58) 71% 76%, transparent 77%),
-    linear-gradient(135deg, #ffffff, #eaf6fd);
-}
-
-.news-card__visual--media {
-  background:
-    radial-gradient(circle at 78% 28%, rgba(244, 160, 47, 0.5) 0 12%, transparent 13%),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.7) 0 8%, transparent 9%),
-    linear-gradient(135deg, #f8efe2 0%, #f2ebf8 100%);
 }
 
 .news-card__body {
@@ -549,16 +515,6 @@ a {
 .news-card__tag--violet {
   background: rgba(92, 6, 140, 0.14);
   color: var(--color-primary);
-}
-
-.news-card__tag--blue {
-  background: rgba(60, 155, 215, 0.16);
-  color: #2f86bd;
-}
-
-.news-card__tag--orange {
-  background: rgba(244, 160, 47, 0.18);
-  color: #d97616;
 }
 
 .news-card h3 {
@@ -679,13 +635,6 @@ a {
   width: 100%;
   max-height: 650px;
   object-fit: contain;
-}
-
-.news-detail__placeholder {
-  height: min(55vw, 420px);
-  border-radius: 1.55rem;
-  background-size: cover;
-  background-position: center;
 }
 
 .news-detail__content {
